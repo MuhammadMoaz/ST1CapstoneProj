@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Continent Predictor</title>
+    <style>
+      body {
+        background-color: #f2f2f2;
+        font-family: Arial, sans-serif;
+        color: #333;
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        text-align: center;
+        margin-top: 50px;
+      }
+      form {
+        width: 50%;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+      }
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+      input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+      }
+      input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      input[type="submit"]:hover {
+        background-color: #3e8e41;
+      }
+      #prediction {
+        margin-top: 20px;
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Continent Predictor</h1>
+    <form action="/predict" method="POST">
+      <label for="GDP_per_capita">GDP Per Capita:</label>
+      <input type="number" step="any" id="GDP_per_capita" name="GDP_per_capita" required>
+      <label for="population">Population:</label>
+      <input type="number" step="any" id="population" name="population" required>
+      <label for="UN_GDP">UN GDP:</label>
+      <input type="number" step="any" id="UN_GDP" name="UN_GDP" required>
+      <label for="IMF_GDP">IMF GDP:</label>
+      <input type="number" step="any" id="IMF_GDP" name="IMF_GDP" required>
+      <br><br>
+      <input type="submit" value="Predict">
+      <p id='prediction'>{{ prediction }}</p>
+    </form>
+  </body>
+</html>
